@@ -7,8 +7,8 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\Comment\StoreCommentPostRequest;
 use Illuminate\Contracts\Support\Renderable;
 use Illuminate\Http\RedirectResponse;
-use parzival42codes\LaravelCodeVersion\App\Models\BlogComment;
-use parzival42codes\LaravelCodeVersion\App\Models\BlogPost;
+use parzival42codes\LaravelBlogBackend\App\Models\BlogComment;
+use parzival42codes\LaravelBlogBackend\App\Models\BlogPost;
 
 class EditController extends Controller
 {

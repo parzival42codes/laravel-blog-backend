@@ -7,7 +7,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\Blog\StoreBlogPostRequest;
 use Illuminate\Contracts\Support\Renderable;
 use Illuminate\Http\RedirectResponse;
-use parzival42codes\LaravelCodeVersion\App\Models\BlogPost;
+use parzival42codes\LaravelBlogBackend\App\Models\BlogPost;
 
 class BlogPostEditController extends Controller
 {
