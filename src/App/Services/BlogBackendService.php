@@ -7,9 +7,9 @@ use parzival42codes\LaravelBlogBackend\App\Models\BlogPost;
 
 class BlogBackendService
 {
-    private static LengthAwarePaginator|null $posts = null;
+    protected static LengthAwarePaginator|null $posts = null;
 
-    public static function getPosts(int $paginate = 10, string $path = null): LengthAwarePaginator
+    public static function getPosts(int $paginate = 10, string $path = ''): LengthAwarePaginator
     {
         if (! static::$posts) {
             static::$posts = BlogPost::with('user')

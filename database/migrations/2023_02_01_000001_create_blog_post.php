@@ -7,11 +7,6 @@ use parzival42codes\LaravelBlogBackend\App\Models\BlogPost;
 
 return new class extends Migration
 {
-    /**
-     * Run the migrations.
-     *
-     * Add the User
-     */
     public function up(): void
     {
         Schema::create(BlogPost::DBNAME, function (Blueprint $table) {
@@ -34,9 +29,6 @@ return new class extends Migration
         });
     }
 
-    /**
-     * Reverse the migrations.
-     */
     public function down(): void
     {
         Schema::disableForeignKeyConstraints();

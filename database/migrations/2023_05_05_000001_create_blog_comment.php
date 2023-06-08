@@ -7,11 +7,6 @@ use parzival42codes\LaravelBlogBackend\App\Models\BlogComment;
 
 return new class extends Migration
 {
-    /**
-     * Run the migrations.
-     *
-     * Add the User
-     */
     public function up(): void
     {
         Schema::create(BlogComment::DBNAME, function (Blueprint $table) {
@@ -27,9 +22,6 @@ return new class extends Migration
         });
     }
 
-    /**
-     * Reverse the migrations.
-     */
     public function down(): void
     {
         Schema::disableForeignKeyConstraints();
