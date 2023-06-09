@@ -39,8 +39,10 @@ class EditController extends Controller
 
     public function store(StoreCommentPostRequest $request): RedirectResponse
     {
+        /** @var array $validated */
         $validated = $request->validated();
 
+        /** @var BlogComment $blogPost */
         $blogPost = BlogComment::findOrNew($validated['id']);
 
         $blogPost->fill($validated);

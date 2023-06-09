@@ -26,6 +26,7 @@ class BlogPostEditController extends Controller
      */
     public function index(string|int $id = 0): Renderable
     {
+        /** @var BlogPost $blogPost */
         $blogPost = BlogPost::findOrNew($id);
 
         $blogPostStatus = StatusEnum::array();
@@ -35,8 +36,10 @@ class BlogPostEditController extends Controller
 
     public function store(StoreBlogPostRequest $request): RedirectResponse
     {
+        /** @var array $validated */
         $validated = $request->validated();
 
+        /** @var BlogPost $blogPost */
         $blogPost = BlogPost::findOrNew($validated['_id']);
 
         $blogPost->fill($validated);
