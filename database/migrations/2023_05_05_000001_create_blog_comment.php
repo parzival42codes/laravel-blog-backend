@@ -5,7 +5,7 @@ use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 use parzival42codes\LaravelBlogBackend\App\Models\BlogComment;
 
-return new class extends Migration
+return new class() extends Migration
 {
     public function up(): void
     {

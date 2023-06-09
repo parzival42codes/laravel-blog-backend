@@ -37,16 +37,6 @@ class BlogPost extends Model
         return self::where('post_status', '=', 'published');
     }
 
-    protected static function boot()
-    {
-        parent::boot();
-
-        static::deleted(function ($post) {
-            $post->trixRichText->each->delete();
-            $post->trixAttachments->each->purge();
-        });
-    }
-
     public function blogComment(): HasMany
     {
         return $this->hasMany(BlogComment::class);
@@ -55,6 +45,16 @@ class BlogPost extends Model
     public function user(): BelongsTo
     {
         return $this->belongsTo(User::class);
+    }
+
+    protected static function boot()
+    {
+        parent::boot();
+
+        static::deleted(function ($post) {
+            $post->trixRichText->each->delete();
+            $post->trixAttachments->each->purge();
+        });
     }
 
     /**
