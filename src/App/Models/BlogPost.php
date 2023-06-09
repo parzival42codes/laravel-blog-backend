@@ -5,14 +5,14 @@ namespace parzival42codes\LaravelBlogBackend\App\Models;
 use App\Models\User;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Concerns\HasTimestamps;
-use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
+use parzival42codes\LaravelBlogBackend\Database\Factories\BlogPostFactory;
 
 class BlogPost extends Model
 {
-    use HasFactory;
     use HasTimestamps;
 
     public const DBNAME = 'blog_posts';
@@ -55,5 +55,13 @@ class BlogPost extends Model
     public function user(): BelongsTo
     {
         return $this->belongsTo(User::class);
+    }
+
+    /**
+     * Create a new factory instance for the model.
+     */
+    protected static function newFactory(): Factory
+    {
+        return BlogPostFactory::new();
     }
 }
