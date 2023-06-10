@@ -12,7 +12,8 @@
     },
     "autoload": {
         "psr-4": {
-            "parzival42codes\\LaravelBlogBackend\\": "src"
+            "parzival42codes\\LaravelBlogBackend\\": "src",
+            "parzival42codes\\LaravelBlogBackend\\database\\seeders\\": "database/seeders/"
         }
     },
     "autoload-dev": {

@@ -32,11 +32,6 @@ class BlogPost extends Model
         'post_title', 'post_content', 'post_status', 'post_path', 'user_id',
     ];
 
-    public static function wherePublished(): Builder|BlogPost
-    {
-        return self::where('post_status', '=', 'published');
-    }
-
     public function blogComment(): HasMany
     {
         return $this->hasMany(BlogComment::class);
@@ -57,11 +52,21 @@ class BlogPost extends Model
         });
     }
 
+    public function scopePublished(Builder $query): void
+    {
+        $query->where('post_status', '=', 'published');
+    }
+
     /**
      * Create a new factory instance for the model.
      */
     protected static function newFactory(): Factory
     {
         return BlogPostFactory::new();
+    }
+
+    public static function getPost(string $path): BlogPost
+    {
+        return BlogPost::firstOrFail()->published()->where('post_path', '=', $path);
     }
 }
