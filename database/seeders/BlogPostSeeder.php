@@ -1,6 +1,6 @@
 <?php
 
-namespace parzival42codes\LaravelBlogBackend\database\seeders;
+namespace parzival42codes\LaravelBlogBackend\Database\seeders;
 
 use Illuminate\Database\Seeder;
 use parzival42codes\LaravelBlogBackend\App\Models\BlogPost;

@@ -1,6 +1,6 @@
 <?php
 
-namespace parzival42codes\LaravelBlogBackend\Database\Factories;
+namespace parzival42codes\LaravelBlogBackend\database\factories;
 
 use App\Enum\Model\BlogComment\StatusEnum;
 use Illuminate\Database\Eloquent\Factories\Factory;

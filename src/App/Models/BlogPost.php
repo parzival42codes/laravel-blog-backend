@@ -9,7 +9,7 @@ use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
-use parzival42codes\LaravelBlogBackend\Database\Factories\BlogPostFactory;
+use parzival42codes\LaravelBlogBackend\Database\factories\BlogPostFactory;
 
 class BlogPost extends Model
 {
