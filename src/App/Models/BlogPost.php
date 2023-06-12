@@ -77,6 +77,6 @@ class BlogPost extends Model
 
     public static function getPost(string $path): BlogPost|null
     {
-        return BlogPost::published()->where('post_path', '=', $path)->first();
+        return BlogPost::with('user')->published()->where('post_path', '=', $path)->first();
     }
 }

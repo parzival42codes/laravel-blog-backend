@@ -2,6 +2,7 @@
 
 namespace parzival42codes\LaravelBlogBackend\App\Models;
 
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Concerns\HasTimestamps;
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Database\Eloquent\Model;
@@ -34,5 +35,20 @@ class BlogComment extends Model
     protected static function newFactory(): Factory
     {
         return BlogCommentFactory::new();
+    }
+
+    public function scopePublished(Builder $query): void
+    {
+        $query->where('status', '=', 'published');
+    }
+
+    public function scopeHidden(Builder $query): void
+    {
+        $query->where('status', '=', 'hidden');
+    }
+
+    public function scopeReported(Builder $query): void
+    {
+        $query->where('status', '=', 'reported');
     }
 }
