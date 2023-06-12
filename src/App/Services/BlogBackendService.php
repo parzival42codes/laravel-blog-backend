@@ -14,6 +14,7 @@ class BlogBackendService
         if (! static::$posts) {
             static::$posts = BlogPost::with('user')
                 ->withCount('blogComment')
+                ->published()
                 ->paginate($paginate)
                 ->withPath($path);
         }

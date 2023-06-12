@@ -57,6 +57,16 @@ class BlogPost extends Model
         $query->where('post_status', '=', 'published');
     }
 
+    public function scopeHidden(Builder $query): void
+    {
+        $query->where('post_status', '=', 'hidden');
+    }
+
+    public function scopeDraft(Builder $query): void
+    {
+        $query->where('post_status', '=', 'draft');
+    }
+
     /**
      * Create a new factory instance for the model.
      */
@@ -65,8 +75,8 @@ class BlogPost extends Model
         return BlogPostFactory::new();
     }
 
-    public static function getPost(string $path): BlogPost
+    public static function getPost(string $path): BlogPost|null
     {
-        return BlogPost::firstOrFail()->published()->where('post_path', '=', $path);
+        return BlogPost::published()->where('post_path', '=', $path)->first();
     }
 }

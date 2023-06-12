@@ -2,15 +2,14 @@
 
 namespace parzival42codes\LaravelBlogBackend\App\Models;
 
-use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Concerns\HasTimestamps;
-use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Database\Eloquent\Model;
+use parzival42codes\LaravelBlogBackend\Database\factories\BlogCommentFactory;
 
 class BlogComment extends Model
 {
     use HasTimestamps;
-    use HasFactory;
 
     public const DBNAME = 'blog_comments';
 
@@ -29,8 +28,11 @@ class BlogComment extends Model
         'email', 'content', 'status', 'blog_post_id',
     ];
 
-    public static function wherePublished(): Builder|BlogComment
+    /**
+     * Create a new factory instance for the model.
+     */
+    protected static function newFactory(): Factory
     {
-        return self::where('post_status', '=', 'published');
+        return BlogCommentFactory::new();
     }
 }

@@ -1,9 +1,9 @@
 <?php
 
-namespace parzival42codes\LaravelBlogBackend\database\seeders;
+namespace parzival42codes\LaravelBlogBackend\Database\seeders;
 
 use Illuminate\Database\Seeder;
-use parzival42codes\LaravelCodeVersion\App\Models\BlogComment;
+use parzival42codes\LaravelBlogBackend\App\Models\BlogComment;
 
 class BlogCommentSeeder extends Seeder
 {
@@ -14,7 +14,7 @@ class BlogCommentSeeder extends Seeder
      */
     public function run()
     {
-        BlogComment::factory()
+        BlogComment::newFactory()
             ->count(15)
             ->create();
     }
