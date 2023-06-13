@@ -26,32 +26,40 @@ class AdminMenu
         $menuContent = Menu::new()
             ->setAttributes(['id' => 'adminMenuContent'])
             ->addClass('collapse')
-            ->link(route('blog-backend.blogpost'), __('admin.side.menu.blog'));
+            ->link(route('blog-backend.blog'), __('admin.side.menu.comment'))->link(
+                route('blog-backend.comment'),
+                __('admin.side.menu.comment')
+            );
 
         MenuHelper::get('admin')
             ->wrap('div', [
                 'class' => 'spatie--laravel--menu administration-menu',
             ])
             ->link(route('blog-backend.dashboard'), __('admin.side.menu.dashboard'))
-
-            ->submenu(Link::to(
-                '#adminMenuContent',
-                Icon::googleMaterial('folder') . '&nbsp;' . __('admin.side.subMenu.content')
+            ->submenu(
+                Link::to(
+                    '#adminMenuContent',
+                    Icon::googleMaterial('folder') . '&nbsp;' . __('admin.side.subMenu.content')
+                )
+                    ->addClass('dropdown-bs-toggle')
+                    ->setAttributes([
+                        'data-bs-toggle' => 'collapse',
+                        'role' => 'button',
+                    ]),
+                $menuContent
             )
-                ->addClass('dropdown-bs-toggle')
-                ->setAttributes([
-                    'data-bs-toggle' => 'collapse',
-                    'role' => 'button',
-                ]), $menuContent)
-            ->submenu(Link::to(
-                '#adminMenuTools',
-                Icon::googleMaterial('folder') . '&nbsp;' . __('admin.side.subMenu.tools')
-            )
-                ->addClass('dropdown-bs-toggle')
-                ->setAttributes([
-                    'data-bs-toggle' => 'collapse',
-                    'role' => 'button',
-                ]), $menuTools);
+            ->submenu(
+                Link::to(
+                    '#adminMenuTools',
+                    Icon::googleMaterial('folder') . '&nbsp;' . __('admin.side.subMenu.tools')
+                )
+                    ->addClass('dropdown-bs-toggle')
+                    ->setAttributes([
+                        'data-bs-toggle' => 'collapse',
+                        'role' => 'button',
+                    ]),
+                $menuTools
+            );
 
         return $next($request);
     }

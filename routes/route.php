@@ -24,9 +24,15 @@ Route::middleware(['web', 'auth', AdminMenu::class])
         Route::get('blog-backend', [DashboardController::class, 'index'])
             ->name('blog-backend.dashboard');
 
-        Route::get('blog-backend/blogpost', [
+        Route::get('blog-backend/blog', [
             OverviewController::class,
             'index',
         ])
-            ->name('blog-backend.blogpost');
+            ->name('blog-backend.blog');
+
+        Route::get('blog-backend/comment', [
+            OverviewController::class,
+            'index',
+        ])
+            ->name('blog-backend.comment');
     });
