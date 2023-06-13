@@ -1,9 +1,11 @@
 <?php
 
-namespace parzival42codes\laravelResourcesOptimisation;
+namespace parzival42codes\LaravelBlogBackend;
 
 use Illuminate\Support\Facades\Route;
-use parzival42codes\laravelResourcesOptimisation\Http\Controllers\ResourcesController;
+use parzival42codes\LaravelBlogBackend\App\Http\Controllers\Blog\OverviewController;
+use parzival42codes\LaravelBlogBackend\App\Http\Controllers\DashboardController;
+use parzival42codes\LaravelBlogBackend\App\Http\Middleware\AdminMenu;
 
 /*
 |--------------------------------------------------------------------------
@@ -16,8 +18,15 @@ use parzival42codes\laravelResourcesOptimisation\Http\Controllers\ResourcesContr
 |
 */
 
-Route::get('resources/{fileName}', [
-    ResourcesController::class,
-    'show',
-])
-    ->where('fileName', '[a-zA-Z0-9\/\.]+')->name('laravelresourcesoptimisation');
+Route::middleware(['web', 'auth', AdminMenu::class])
+    ->group(function () {
+
+        Route::get('blog-backend', [DashboardController::class, 'index'])
+            ->name('blog-backend.dashboard');
+
+        Route::get('blog-backend/blogpost', [
+            OverviewController::class,
+            'index',
+        ])
+            ->name('blog-backend.blogpost');
+    });

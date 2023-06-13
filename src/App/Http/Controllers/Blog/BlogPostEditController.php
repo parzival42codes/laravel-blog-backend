@@ -1,6 +1,6 @@
 <?php
 
-namespace parzival42codes\LaravelBlogBackend\App\Http\Controllers\Administration;
+namespace parzival42codes\LaravelBlogBackend\App\Http\Controllers\Blog;
 
 use App\Enum\Model\BlogPost\StatusEnum;
 use App\Http\Controllers\Controller;
@@ -12,16 +12,6 @@ use parzival42codes\LaravelBlogBackend\App\Models\BlogPost;
 class BlogPostEditController extends Controller
 {
     /**
-     * Create a new controller instance.
-     *
-     * @return void
-     */
-    public function __construct()
-    {
-        $this->middleware('auth');
-    }
-
-    /**
      * Show the application dashboard.
      */
     public function index(string|int $id = 0): Renderable
@@ -31,7 +21,7 @@ class BlogPostEditController extends Controller
 
         $blogPostStatus = StatusEnum::array();
 
-        return view('admin.blog.postEdit', compact('blogPost', 'blogPostStatus'));
+        return view('blog-backend::blog.postEdit', compact('blogPost', 'blogPostStatus'));
     }
 
     public function store(StoreBlogPostRequest $request): RedirectResponse

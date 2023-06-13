@@ -13,7 +13,9 @@ class LaravelBlogBackendServiceProvider extends PackageServiceProvider
 
     public function configurePackage(Package $package): void
     {
-        $package->name(self::PACKAGE_NAME)->hasRoute('route');
+        $package->name(self::PACKAGE_NAME)
+            ->hasRoute('route')
+            ->hasViews();
     }
 
     public function registeringPackage(): void

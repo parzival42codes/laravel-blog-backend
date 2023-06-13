@@ -27,7 +27,7 @@ class BlogCommentFactory extends Factory
 
         return [
             'email' => $this->faker->email, 'content' => $this->faker->text, 'status' => reset($blogStatus),
-            'blog_post_id' => $this->faker->numberBetween(1, 5),
+            'blog_post_id' => $this->faker->numberBetween(1, 100),
         ];
     }
 }

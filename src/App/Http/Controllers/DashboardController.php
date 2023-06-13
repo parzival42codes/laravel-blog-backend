@@ -1,11 +1,11 @@
 <?php
 
-namespace parzival42codes\LaravelBlogBackend\App\Http\Controllers\Administration;
+namespace parzival42codes\LaravelBlogBackend\App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Contracts\Support\Renderable;
 
-class BlogPostController extends Controller
+class DashboardController extends Controller
 {
     /**
      * Show the application dashboard.
@@ -14,6 +14,6 @@ class BlogPostController extends Controller
     {
         $data = [];
 
-        return view('admin.blogPost', $data);
+        return view('blog-backend::dashboard', $data);
     }
 }
