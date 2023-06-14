@@ -12,8 +12,6 @@ class OverviewController extends Controller
      */
     public function index(): Renderable
     {
-        $data = [];
-
-        return view('blog-backend::blog.overview', $data);
+        return view('blog-backend::blog.overview');
     }
 }

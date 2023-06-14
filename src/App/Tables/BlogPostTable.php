@@ -18,7 +18,7 @@ class BlogPostTable extends AbstractTableConfiguration
             ->model(BlogPost::class);
 
         $table->rowActions(fn (BlogPost $blogPost) => [
-            new EditRowAction(route('admin.blog.post.edit', $blogPost)),
+            new EditRowAction(route('blog-backend.blog::edit', $blogPost)),
         ]);
 
         return $table;
@@ -33,22 +33,22 @@ class BlogPostTable extends AbstractTableConfiguration
                 ->sortByDefault(),
 
             Column::make('post_title')
-                ->title(__('admin.blog.post.table.post_title')),
+                ->title(__('blog-backend.blog.post.table.post_title')),
 
             Column::make('post_status')
-                ->title(__('admin.blog.post.table.post_status'))
+                ->title(__('blog-backend.blog.post.table.post_status'))
                 ->format(new BlogPostStatusFormatter())
                 ->sortable(),
 
             Column::make('author')
-                ->title(__('admin.blog.post.table.author')),
+                ->title(__('blog-backend.blog.post.table.author')),
 
             Column::make('created_at')
-                ->title(__('admin.blog.post.table.created_at'))
+                ->title(__('blog-backend.blog.post.table.created_at'))
                 ->format(new DateFormatter('d.m.Y H:i', 'Europe/Paris')),
 
             Column::make('updated_at')
-                ->title(__('admin.blog.post.table.updated_at'))
+                ->title(__('blog-backend.blog.post.table.updated_at'))
                 ->format(new DateFormatter('d.m.Y H:i', 'Europe/Paris')),
         ];
     }

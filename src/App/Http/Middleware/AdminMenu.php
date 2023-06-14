@@ -17,16 +17,10 @@ class AdminMenu
      */
     public function handle(Request $request, Closure $next): Response
     {
-        $menuTools = Menu::new()
-            ->setAttributes(['id' => 'adminMenuTools'])
-            ->addClass('collapse')
-            ->link(route('admin.translation.manager'), __('admin.side.menu.translation'))
-            ->link(route('admin.log-viewer'), __('admin.side.menu.logViewer'));
-
         $menuContent = Menu::new()
             ->setAttributes(['id' => 'adminMenuContent'])
             ->addClass('collapse')
-            ->link(route('blog-backend.blog'), __('admin.side.menu.comment'))->link(
+            ->link(route('blog-backend.blog'), __('admin.side.menu.blog'))->link(
                 route('blog-backend.comment'),
                 __('admin.side.menu.comment')
             );
@@ -47,18 +41,6 @@ class AdminMenu
                         'role' => 'button',
                     ]),
                 $menuContent
-            )
-            ->submenu(
-                Link::to(
-                    '#adminMenuTools',
-                    Icon::googleMaterial('folder') . '&nbsp;' . __('admin.side.subMenu.tools')
-                )
-                    ->addClass('dropdown-bs-toggle')
-                    ->setAttributes([
-                        'data-bs-toggle' => 'collapse',
-                        'role' => 'button',
-                    ]),
-                $menuTools
             );
 
         return $next($request);

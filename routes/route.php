@@ -3,6 +3,7 @@
 namespace parzival42codes\LaravelBlogBackend;
 
 use Illuminate\Support\Facades\Route;
+use parzival42codes\LaravelBlogBackend\App\Http\Controllers\Blog\EditController;
 use parzival42codes\LaravelBlogBackend\App\Http\Controllers\Blog\OverviewController;
 use parzival42codes\LaravelBlogBackend\App\Http\Controllers\DashboardController;
 use parzival42codes\LaravelBlogBackend\App\Http\Middleware\AdminMenu;
@@ -29,6 +30,12 @@ Route::middleware(['web', 'auth', AdminMenu::class])
             'index',
         ])
             ->name('blog-backend.blog');
+
+        Route::get('blog-backend/blog/edit/{id}', [
+            EditController::class,
+            'index',
+        ])
+            ->name('blog-backend.blog::edit');
 
         Route::get('blog-backend/comment', [
             OverviewController::class,
