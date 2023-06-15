@@ -42,4 +42,16 @@ Route::middleware(['web', 'auth', AdminMenu::class])
             'index',
         ])
             ->name('blog-backend.comment');
+
+        Route::get('blog-backend/comment/{id}', [
+            EditController::class,
+            'index',
+        ])
+            ->name('blog-backend.comment::edit');
+
+        Route::post('blog-backend/comment/{id}', [
+            EditController::class,
+            'index',
+        ])
+            ->name('blog-backend.comment::store');
     });

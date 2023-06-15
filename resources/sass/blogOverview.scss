@@ -1,5 +1,21 @@
 .packages--parzival42codes--laravel-blog-backend--blog--post-status {
+  &.status-hidden {
+    background: yellow;
+    color: black;
+  }
+
+  &.status-published {
+    background: green;
+    color: white;
+  }
+
+  &.status-draft {
+    background: gray;
+    color: white;
+  }
+
   border: 1px solid black;
   border-radius: 1em;
-  padding: 0.5em;
+  padding: 0.2em 0.5em;
+  text-align: center;
 }

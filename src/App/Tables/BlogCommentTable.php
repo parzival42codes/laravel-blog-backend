@@ -2,13 +2,13 @@
 
 namespace parzival42codes\LaravelBlogBackend\App\Tables;
 
-use BlogPostCommentStatusFormatter;
 use Okipa\LaravelTable\Abstracts\AbstractTableConfiguration;
 use Okipa\LaravelTable\Column;
 use Okipa\LaravelTable\Formatters\DateFormatter;
 use Okipa\LaravelTable\RowActions\EditRowAction;
 use Okipa\LaravelTable\Table;
 use parzival42codes\LaravelBlogBackend\App\Models\BlogComment;
+use parzival42codes\LaravelBlogBackend\App\Tables\Formatters\BlogPostCommentStatusFormatter;
 
 class BlogCommentTable extends AbstractTableConfiguration
 {
@@ -18,7 +18,7 @@ class BlogCommentTable extends AbstractTableConfiguration
             ->model(BlogComment::class);
 
         $table->rowActions(fn (BlogComment $blogComment) => [
-            new EditRowAction(route('admin.blog.comment.edit', $blogComment)),
+            new EditRowAction(route('blog-backend.comment::edit', $blogComment)),
         ]);
 
         return $table;

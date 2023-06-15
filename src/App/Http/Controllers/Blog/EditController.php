@@ -21,7 +21,11 @@ class EditController extends Controller
 
         $blogPostStatus = StatusEnum::array();
 
-        return view('blog-backend::blog.postEdit', compact('blogPost', 'blogPostStatus'));
+        return view('blog-backend::blog.postEdit', compact([
+            'blogPost',
+            'blogPostStatus',
+            'id',
+        ]));
     }
 
     public function store(StoreBlogPostRequest $request): RedirectResponse

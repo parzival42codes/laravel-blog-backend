@@ -1,6 +1,6 @@
 <?php
 
-namespace parzival42codes\LaravelBlogBackend\App\Http\Controllers\Administration\Comment;
+namespace parzival42codes\LaravelBlogBackend\App\Http\Controllers\Comment;
 
 use App\Enum\Model\BlogComment\StatusEnum;
 use App\Http\Controllers\Controller;

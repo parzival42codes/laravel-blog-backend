@@ -2,7 +2,7 @@
 
 @section('app--container-center')
     <div class="admin--blog--post--edit">
-        {{ Aire::open()->route('admin.blog.post.edit::store')->bind($blogPost) }}
+        {{ Aire::open()->route('blog-backend.blog::edit',['id' => $id])->bind($blogPost) }}
         {{ Aire::hidden('_id',$blogPost->id) }}
         <div class="card">
             <div class="card-header">{{ __('admin.blog.title') }}</div>
