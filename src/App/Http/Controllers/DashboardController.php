@@ -14,6 +14,6 @@ class DashboardController extends Controller
     {
         $data = [];
 
-        return view('blog-backend::dashboard', $data);
+        return view('blog-backend::index', $data);
     }
 }
