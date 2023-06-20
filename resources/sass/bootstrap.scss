@@ -1,0 +1,25 @@
+// Bootstrap
+@import '~bootstrap/scss/bootstrap.scss';
+@import "~bootstrap/scss/functions";
+
+// https://huemint.com/bootstrap-basic/#palette=d2eaee-ffffff-3b6144-22405f-19658d-f4c69c
+// https://bootstrap.build/app
+
+$white: #ffffff;
+
+$theme-colors: (
+        "light":      #d2eaee,
+        "dark":       #3b6144,
+        "primary":    #22405f,
+        "secondary":  #19658d,
+        "info":       #f4c69c,
+        "success":    #15a85f,
+        "warning":    #e5cb14,
+        "danger":     #f50e08,
+);
+
+@import "~bootstrap/scss/maps";
+@import "~bootstrap/scss/mixins";
+@import "~bootstrap/scss/root";
+
+
