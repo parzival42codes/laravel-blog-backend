@@ -1,19 +1,17 @@
 <?php
 
-namespace parzival42codes\LaravelBlogBackend\App\Http\Controllers;
+namespace parzival42codes\LaravelBlogBackend\App\Http\Controllers\Page;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Contracts\Support\Renderable;
 
-class DashboardController extends Controller
+class OverviewController extends Controller
 {
     /**
      * Show the application dashboard.
      */
     public function index(): Renderable
     {
-        $data = [];
-
-        return view('blog-backend::dashboard', $data);
+        return view('blog-backend::page.overview');
     }
 }

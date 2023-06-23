@@ -20,9 +20,14 @@ class AdminMenu
         $menuContent = Menu::new()
             ->setAttributes(['id' => 'adminMenuContent'])
             ->addClass('collapse')
-            ->link(route('blog-backend.blog'), __('admin.side.menu.blog'))->link(
+            ->link(route('blog-backend.blog'), __('admin.side.menu.blog'))
+            ->link(
                 route('blog-backend.comment'),
-                __('admin.side.menu.comment')
+                __('blog-backend.side.menu.comment')
+            )
+            ->link(
+                route('blog-backend.page'),
+                __('blog-backend.side.menu.page')
             );
 
         MenuHelper::get('admin')
