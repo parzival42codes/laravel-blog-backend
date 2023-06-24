@@ -10,7 +10,7 @@ use Illuminate\Http\RedirectResponse;
 use parzival42codes\LaravelBlogBackend\App\Models\BlogComment;
 use parzival42codes\LaravelBlogBackend\App\Models\BlogPost;
 
-class EditController extends Controller
+class CommentEditController extends Controller
 {
     /**
      * Create a new controller instance.

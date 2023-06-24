@@ -1,15 +1,16 @@
 <?php
 
-namespace parzival42codes\LaravelBlogBackend\App\Http\Controllers\Blog;
+namespace parzival42codes\LaravelBlogBackend\App\Http\Controllers\Page;
 
 use App\Enum\Model\BlogPost\StatusEnum;
+use App\Helpers\ResponseHelper;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Blog\StoreBlogPostRequest;
 use Illuminate\Contracts\Support\Renderable;
 use Illuminate\Http\RedirectResponse;
 use parzival42codes\LaravelBlogBackend\App\Models\BlogPost;
 
-class EditController extends Controller
+class PageEditController extends Controller
 {
     /**
      * Show the application dashboard.
@@ -21,7 +22,7 @@ class EditController extends Controller
 
         $blogPostStatus = StatusEnum::array();
 
-        return view('blog-backend::blog.postEdit', compact([
+        return view('blog-backend::page.postEdit', compact([
             'blogPost',
             'blogPostStatus',
             'id',
@@ -38,6 +39,13 @@ class EditController extends Controller
 
         $blogPost->fill($validated);
         $blogPost->save();
+
+        return ResponseHelper::responseWitMessage('administration.company::edit', [
+            'id' => $company->id,
+        ])
+            ->translate('Die Firma :item wurde gespeichert!')
+            ->item($company->name)
+            ->redirect();
 
         d(request()->all());
         d($validated);

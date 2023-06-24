@@ -5,7 +5,7 @@ namespace parzival42codes\LaravelBlogBackend\App\Http\Controllers\Comment;
 use App\Http\Controllers\Controller;
 use Illuminate\Contracts\Support\Renderable;
 
-class OverviewController extends Controller
+class CommentOverviewController extends Controller
 {
     /**
      * Show the application dashboard.
