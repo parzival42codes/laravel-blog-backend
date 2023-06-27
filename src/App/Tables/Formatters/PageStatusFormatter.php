@@ -2,9 +2,9 @@
 
 namespace parzival42codes\LaravelBlogBackend\App\Tables\Formatters;
 
-use App\Models\Page;
 use Illuminate\Database\Eloquent\Model;
 use Okipa\LaravelTable\Abstracts\AbstractFormatter;
+use parzival42codes\LaravelBlogBackend\App\Models\Page;
 
 class PageStatusFormatter extends AbstractFormatter
 {

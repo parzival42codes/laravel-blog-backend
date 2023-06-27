@@ -9,6 +9,7 @@ use App\Http\Requests\Blog\StoreBlogPostRequest;
 use Illuminate\Contracts\Support\Renderable;
 use Illuminate\Http\RedirectResponse;
 use parzival42codes\LaravelBlogBackend\App\Models\BlogPost;
+use parzival42codes\LaravelBlogBackend\App\Models\Page;
 
 class PageEditController extends Controller
 {
@@ -22,7 +23,7 @@ class PageEditController extends Controller
 
         $blogPostStatus = StatusEnum::array();
 
-        return view('blog-backend::page.postEdit', compact([
+        return view('blog-backend::page.edit', compact([
             'blogPost',
             'blogPostStatus',
             'id',
@@ -34,17 +35,17 @@ class PageEditController extends Controller
         /** @var array $validated */
         $validated = $request->validated();
 
-        /** @var BlogPost $blogPost */
-        $blogPost = BlogPost::findOrNew($validated['_id']);
+        /** @var Page $page */
+        $page = Page::findOrNew($validated['_id']);
 
-        $blogPost->fill($validated);
-        $blogPost->save();
+        $page->fill($validated);
+        $page->save();
 
         return ResponseHelper::responseWitMessage('administration.company::edit', [
-            'id' => $company->id,
+            'id' => $page->id,
         ])
             ->translate('Die Firma :item wurde gespeichert!')
-            ->item($company->name)
+            ->item($page->title)
             ->redirect();
 
         d(request()->all());
