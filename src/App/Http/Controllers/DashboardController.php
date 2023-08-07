@@ -12,8 +12,6 @@ class DashboardController extends Controller
      */
     public function index(): Renderable
     {
-        $data = [];
-
-        return view('blog-backend::dashboard', $data);
+        return view('blog-backend::dashboard');
     }
 }
